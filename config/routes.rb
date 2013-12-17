@@ -15,7 +15,7 @@
 #
 
 unless RAILS_ENV == 'production'
-  ActionController::Routing::Routes.draw do 
+  Rails.application.routes.draw do
     resources :system_log do
       get "clear", :on => :collection
     end
