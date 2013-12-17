@@ -1,0 +1,24 @@
+<h1>System Log</h1>
+<div id='tool'>
+  <form action="/system_log" style="float:right" >
+    <input type="text" name="search" size="36" maxlength="100" />        
+    <input type="submit" value="搜索" id="search"/>
+  </form>
+
+  <div id='tool-bar'>
+    <%=link_to '所有日志', :action=>:index %> |
+    <%=link_to '清空日志', {:action=>:clear}, {:confirm => '确认清除所有日志？'} %> |
+    <%=link_to_function '刷新', 'window.location.reload();' %>
+  </div>
+</div>
+<div>&nbsp;&nbsp;</div>
+
+<%= will_paginate @logs %>
+
+<% @logs.each do |log| 
+  unless log.blank? %>
+    <p><%= log %></p><hr/>
+  <% end 
+end %>
+
+<%= will_paginate @logs %>
