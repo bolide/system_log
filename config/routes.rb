@@ -14,8 +14,8 @@
 #
 #
 
-unless RAILS_ENV == 'production'
-  Rails.application.routes.draw do
+unless Rails.env == 'production'
+  SystemLog::Engine.routes.draw do
     resources :system_log do
       get "clear", :on => :collection
     end

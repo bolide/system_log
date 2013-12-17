@@ -1,6 +1,6 @@
-require "system_log/version"
 require 'rails'
-
+require "system_log/version"
+require "system_log/engine"
 module SystemLog
   class SystemLog
     class << self
