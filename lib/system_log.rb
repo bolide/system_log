@@ -1,4 +1,5 @@
 require "system_log/version"
+require 'rails'
 
 module SystemLog
   class SystemLog
