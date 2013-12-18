@@ -13,7 +13,7 @@
 </div>
 <div>&nbsp;&nbsp;</div>
 
-<%= will_paginate @logs %>
+<%= paginate @logs %>
 
 <% @logs.each do |log| 
   unless log.blank? %>
@@ -21,4 +21,4 @@
   <% end 
 end %>
 
-<%= will_paginate @logs %>
+<%= paginate @logs %>
