@@ -22,11 +22,9 @@ set config/routes.rb
 
   #The development environment，load log/development.log
 
-  if Rails.env == "development"
-
-    mount SystemLog::Engine, :at => "/system_log"
-
-  end
+  if Rails.env == "development" \r
+    mount SystemLog::Engine, :at => "/system_log" \r
+  end \r
 
   call on http:localhost.com:3000/system_log
 
