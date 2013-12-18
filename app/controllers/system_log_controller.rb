@@ -5,9 +5,7 @@ module SystemLog
     PER_PAGE = 20
     include SystemLogHelper
     def index
-      @logs = SystemLog.logo_data(:page => params[:page],
-        :per_page => PER_PAGE,
-        :search => params[:search] )
+      @logs = SystemLog.logo_data(params[:page]||1,params[:per]||PER_PAGE,params[:search] )
     end
 
     def clear

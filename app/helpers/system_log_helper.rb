@@ -2,10 +2,10 @@ module SystemLogHelper
   class SystemLog
     class << self
       # 分页（支持多关键字查询）
-      def logo_data(options_or_page = {})
+      def logo_data(page,per,search)
         logs = find_all_logs
         # 根据search参数来决定是否需要查询
-        keywords = options_or_page[:search]
+        keywords = search
         if keywords && !keywords.strip.blank?
           # 把keywords转化成正则表达式数组
           keywords = keywords.strip.split(/\s+/).collect! {|w| Regexp.new(w, 'i')}
@@ -13,13 +13,13 @@ module SystemLogHelper
           logs = logs.find_all do |log|
             keywords.all? { |r| log =~ r }
           end
-          logs = logs.page(options_or_page).collect! {|log| parse(log)}
+          logs = Kaminari.paginate_array(logs).page(page).per(per).collect! {|log| parse(log)}
           logs.collect! do |log|
             keywords.each { |r| log.gsub!(r, '<span class="search_results">\0</span>')}
             log
           end
         else
-          logs = logs.page(options_or_page).collect! {|log| parse(log)}
+          logs = Kaminari.paginate_array(logs).page(page).per(per).collect! {|log| parse(log)}
         end
         logs
       end
