@@ -34,10 +34,10 @@ module SystemLogHelper
           f.read.split("\nProcessing ").reverse[1..-1]
         end
       end
-      # 日志文件的路径，一般在RAILS_ROOT/log下，根据环境配置
+      # 日志文件的路径，一般在Rails.root/log下，根据环境配置
       # 依次记录到product.log development.log test.log中
       def logfile_path
-        File.join(RAILS_ROOT, "log", "#{ENV['RAILS_ENV']}.log")
+        File.join(Rails.root, "log", "#{ENV['RAILS_ENV']}.log")
       end
       def parse(log)
         ERB::Util.html_escape(log.gsub(/\e\[[\d;m]+/, '')).gsub("\n", "<br/>")
