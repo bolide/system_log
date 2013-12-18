@@ -1,6 +1,6 @@
 # SystemLog
 
-TODO: Write a gem description
+View the system log of the gem.
 
 ## Installation
 
@@ -18,7 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+set config/routes.rb
+
+  #The development environment，load log/development.log
+  if Rails.env == "development"
+    mount SystemLog::Engine, :at => "/system_log"
+  end
+
+  call on http:localhost.com:3000/system_log
 
 ## Contributing
 
