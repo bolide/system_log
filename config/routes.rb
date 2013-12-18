@@ -16,8 +16,7 @@
 
 #unless Rails.env == 'production'
   SystemLog::Engine.routes.draw do
-    resources :system_log do
-      get "clear", :on => :collection
-    end
+    match 'system_log' => 'system_log#index'
+    match 'system_log/clear' => 'system_log#clear'
   end
 #end
