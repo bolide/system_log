@@ -21,6 +21,7 @@ Or install it yourself as:
 set config/routes.rb
 
   #The development environment，load log/development.log
+
   if Rails.env == "development"
     mount SystemLog::Engine, :at => "/system_log"
   end
