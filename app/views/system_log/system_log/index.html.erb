@@ -1,4 +1,5 @@
 <h1>System Log</h1>
+<a href="http://www.huolg.com/gems/system_log" title="huolg">huolg gem tool</a><br/>
 <div id='tool'>
   <form action="/system_log" style="float:right" >
     <input type="text" name="search" size="36" maxlength="100" />        
@@ -12,13 +13,12 @@
   </div>
 </div>
 <div>&nbsp;&nbsp;</div>
+<%= paginate @logs %><br/>
 
-<%= paginate @logs %>
-
-<% @logs.each do |log| 
-  unless log.blank? %>
+<% @logs.each do |log| %>
+  <%  unless log.blank? %>
     <p><%= raw log %></p><hr/>
-  <% end 
-end %>
+  <% end %>
+<%end %>
 
 <%= paginate @logs %>
