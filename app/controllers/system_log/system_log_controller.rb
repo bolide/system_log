@@ -4,7 +4,7 @@ module SystemLog
     # 默认每页显示20条记录
     PER_PAGE = 20
     layout "system_log/application"
-    include SystemLogHelper
+    include SystemLog::SystemLogHelper
     def index
       @logs = SystemLog.logo_data(params[:page]||1,params[:per]||PER_PAGE,params[:search] )
     end
