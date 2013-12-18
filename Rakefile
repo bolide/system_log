@@ -22,6 +22,7 @@ end
 
 # 在此设置Route，可以避免在每个应用程序中设置
 load 'rails/tasks/engine.rake'
+Bundler::GemHelper.install_tasks
 #class ActionController::Routing::RouteSet
 #  alias draw_without_log draw
 #  def draw_with_log
