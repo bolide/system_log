@@ -17,7 +17,7 @@
 
 <% @logs.each do |log| 
   unless log.blank? %>
-    <p><%= log %></p><hr/>
+    <p><%= raw log %></p><hr/>
   <% end 
 end %>
 

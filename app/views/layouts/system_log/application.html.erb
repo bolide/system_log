@@ -5,26 +5,49 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>System Log</title>
-  <style type="text/css">
+  <head>
+    <title>System Log</title>
+    <style type="text/css">
       /*body {*/
       /*font-size:90%;*/
       /*}*/
       body {
-          color: #333333;
-          font-family: lucida grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
-          font-size: 12px;
-          line-height: 20px;
+        color: #333333;
+        font-family: lucida grande, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 20px;
       }
 
       .search_results {
-          color: red;
+        color: red;
       }
-  </style>
-</head>
+      /*=======分页样式========*/
+      .pagination ul li a, .pagination ul li span{
+        background-color: #FFFFFF;
+        border-color: #DDDDDD;
+        border-image: none;
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        float: left;
+        line-height: 20px;
+        padding: 4px 12px;
+        text-decoration: none;
+      }
+      .pagination ul a {
+        color: #9B9B9B;
+      }
+      .pagination ul li a:hover, .pagination ul li a:focus, .pagination ul .active a, .pagination ul .active span{
+        background-color: #ffc02f;
+        border: 1px solid #ffc02f;
+      }
+      .pagination ul li{
+        float: left;
+        margin-right: 3px;
+      }
+    </style>
+  </head>
 
-<body onload="document.getElementById('search').focus();">
-<%= yield %>
-</body>
+  <body onload="document.getElementById('search').focus();">
+    <%= yield %>
+  </body>
 </html>
